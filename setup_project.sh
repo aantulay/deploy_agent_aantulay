@@ -105,3 +105,14 @@ charlie@example.com,Charlie Davis,4,11
 diana@example.com,Diana Prince,15,0
 CSVEOF
 
+cat > "$PROJECT_DIR/Helpers/config.json" << 'JSONEOF'
+{
+    "thresholds": {
+        "warning": 75,
+        "failure": 50
+    },
+    "run_mode": "live",
+    "total_sessions": 15
+}
+JSONEOF
+
