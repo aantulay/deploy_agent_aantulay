@@ -156,3 +156,20 @@ else
     echo "[WARNING] python3 not found. attendance_checker.py will not run."
 fi
 
+# FINAL VERIFICATION
+
+for path in \
+    "$PROJECT_DIR/attendance_checker.py" \
+    "$PROJECT_DIR/Helpers/assets.csv" \
+    "$PROJECT_DIR/Helpers/config.json" \
+    "$PROJECT_DIR/reports/reports.log"; do
+    if [ -f "$path" ]; then
+        echo "$path exists"
+    else
+        echo "MISSING: $path"
+    fi
+done
+
+trap - SIGINT
+echo ""
+echo "[DONE] Project '$PROJECT_DIR' is ready."
