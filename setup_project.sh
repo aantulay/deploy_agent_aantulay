@@ -33,3 +33,16 @@ fi
 
 PROJECT_DIR="attendance_tracker_${PROJECT_INPUT}"
 ARCHIVE_NAME="attendance_tracker_${PROJECT_INPUT}_archive"
+
+# DIRECTORY STRUCTURE
+
+if [ -d "$PROJECT_DIR" ]; then
+    echo "[ERROR] '$PROJECT_DIR' already exists. Aborting to avoid overwriting."
+    exit 1
+fi
+
+if ! mkdir -p "$PROJECT_DIR/Helpers" "$PROJECT_DIR/reports" 2>/dev/null; then
+    echo "[ERROR] Could not create directories (permission denied?). Aborting."
+    exit 1
+fi
+echo "[OK] Directory structure created."
