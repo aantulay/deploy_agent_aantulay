@@ -124,3 +124,27 @@ LOGEOF
 
 echo "[OK] Source files generated."
 
+# DYNAMIC CONFIGURATION
+
+CONFIG_PATH="$PROJECT_DIR/Helpers/config.json"
+
+read -p "Update attendance thresholds? (y/n): " UPDATE_CHOICE
+
+if [ "$UPDATE_CHOICE" = "y" ] || [ "$UPDATE_CHOICE" = "Y" ]; then
+    read -p "Enter WARNING threshold % (default 75): " WARNING_INPUT
+    read -p "Enter FAILURE threshold % (default 50): " FAILURE_INPUT
+
+    WARNING_INPUT=${WARNING_INPUT:-75}
+    FAILURE_INPUT=${FAILURE_INPUT:-50}
+
+    if ! [[ "$WARNING_INPUT" =~ ^[0-9]+$ ]] || ! [[ "$FAILURE_INPUT" =~ ^[0-9]+$ ]]; then
+        echo "[ERROR] Thresholds must be whole numbers. Keeping existing values."
+    else
+        sed -i "s/\"warning\": [0-9]*/\"warning\": $WARNING_INPUT/" "$CONFIG_PATH"
+        sed -i "s/\"failure\": [0-9]*/\"failure\": $FAILURE_INPUT/" "$CONFIG_PATH"
+        echo "[OK] Thresholds updated -> warning=$WARNING_INPUT, failure=$FAILURE_INPUT"
+    fi
+else
+    echo "[*] Keeping default thresholds (75 / 50)."
+fi
+
