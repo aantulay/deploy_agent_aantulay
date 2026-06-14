@@ -148,3 +148,11 @@ else
     echo "[*] Keeping default thresholds (75 / 50)."
 fi
 
+# ENVIRONMENT VALIDATION
+
+if python3 --version >/dev/null 2>&1; then
+    echo "[OK] Health check passed: $(python3 --version) is installed."
+else
+    echo "[WARNING] python3 not found. attendance_checker.py will not run."
+fi
+
