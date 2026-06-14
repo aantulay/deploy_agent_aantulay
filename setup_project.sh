@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# GLOBAL VARIABLES
+
+PROJECT_INPUT=""
+PROJECT_DIR=""
+ARCHIVE_NAME=""
