@@ -21,3 +21,15 @@ cleanup_on_interrupt() {
     exit 1
 }
 trap cleanup_on_interrupt SIGINT
+
+# PROJECT NAME
+
+read -p "Enter a tag for this project (e.g. v1): " PROJECT_INPUT
+
+if [ -z "$PROJECT_INPUT" ]; then
+    echo "[ERROR] No project tag provided. Aborting."
+    exit 1
+fi
+
+PROJECT_DIR="attendance_tracker_${PROJECT_INPUT}"
+ARCHIVE_NAME="attendance_tracker_${PROJECT_INPUT}_archive"
