@@ -116,3 +116,11 @@ cat > "$PROJECT_DIR/Helpers/config.json" << 'JSONEOF'
 }
 JSONEOF
 
+cat > "$PROJECT_DIR/reports/reports.log" << 'LOGEOF'
+--- Attendance Report Run: 2026-02-06 18:10:01.468726 ---
+[2026-02-06 18:10:01.469363] ALERT SENT TO bob@example.com: URGENT: Bob Smith, your attendance is 46.7%. You will fail this class.
+[2026-02-06 18:10:01.469424] ALERT SENT TO charlie@example.com: URGENT: Charlie Davis, your attendance is 26.7%. You will fail this class.
+LOGEOF
+
+echo "[OK] Source files generated."
+
