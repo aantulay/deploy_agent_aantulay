@@ -29,3 +29,7 @@ The archive is a compressed binary file. Do not open it in a text editor, it wil
 The two commands you can use are:
 tar -tzf attendance_tracker_{tag}_archive.tar.gz   # list contents
 tar -xzf attendance_tracker_{tag}_archive.tar.gz   # extract it back
+
+
+LINK TO THE EXPLANATION VIDEO
+https://drive.google.com/file/d/1OEgnSAGSeTxhFqJDoNdy6o_R7L3XEgSc/view?usp=sharing
